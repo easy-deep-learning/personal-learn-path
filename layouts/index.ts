@@ -1,0 +1,1 @@
+export { PagesLayout } from './PageLayout'
