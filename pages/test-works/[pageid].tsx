@@ -4,10 +4,10 @@ import { PagesLayout } from '../../layouts'
 import getAllFilesIds from '../../lib/getAllFilesIds'
 import parseMarkdownFile from '../../lib/parseMarkdownFile'
 
-const pagesDirectory = path.join(process.cwd(), 'data', 'text-works')
+const pagesDirectory = path.join(process.cwd(), 'data', 'test-works')
 
 export function getStaticPaths () {
-  const paths = getAllFilesIds(pagesDirectory).map(path => ({ params: { slug: path } }))
+  const paths = getAllFilesIds(pagesDirectory).map(path => ({ params: { pageid: path } }))
 
   return {
     paths,
@@ -17,15 +17,16 @@ export function getStaticPaths () {
 
 type GetStaticPropsType = {
   params: {
-    slug: string
+    pageid: string
   }
 }
 
 export async function getStaticProps ({ params }: GetStaticPropsType) {
-  const fileData = await parseMarkdownFile(path.join(pagesDirectory, `${params.slug}.md`))
+  const fileData = await parseMarkdownFile(path.join(pagesDirectory, `${params.pageid}.md`))
+
   return {
     props: {
-      allPagesData: {
+      pagesData: {
         title: fileData.meta.title,
         date: fileData.meta.date,
         html: fileData.html,

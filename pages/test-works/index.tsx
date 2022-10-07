@@ -12,7 +12,7 @@ import getAllFilesIds from '../../lib/getAllFilesIds'
 import parseMarkdownFile from '../../lib/parseMarkdownFile'
 import path from 'path'
 
-const memoryDirectory = path.join(process.cwd(), 'data', 'text-works')
+const memoryDirectory = path.join(process.cwd(), 'data', 'test-works')
 const pageTitle = `Тестовые задания`
 
 export async function getStaticProps () {
@@ -23,7 +23,7 @@ export async function getStaticProps () {
       const dateParsedISO = parseISO(fileData.meta.date)
 
       return {
-        slug: `${fileId}`,
+        pageid: `${fileId}`,
         title: fileData.meta.title,
         date: fileData.meta.date,
         date_parsed: {
