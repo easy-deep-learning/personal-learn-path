@@ -1,0 +1,36 @@
+name: deploy
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.5.0
+        with:
+          node-version: '16'
+
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.12.2
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Static HTML Export
+        run: pnpm run export
+
+      - name: Disable Jekyl # https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/
+        run: touch ./out/.nojekyll
+
+      - name: Delpoy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: out
