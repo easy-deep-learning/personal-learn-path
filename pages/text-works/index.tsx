@@ -43,10 +43,12 @@ export async function getStaticProps () {
 }
 
 type TextWorksPageProps = {
-  pageData: {
-    title: string
-    contentHtml: string
-  }
+  allPagesData: [
+    {
+      title: string
+      contentHtml: string
+    }
+  ]
 }
 
 export default function TextWorksPage ({ allPagesData }: TextWorksPageProps) {
@@ -55,6 +57,7 @@ export default function TextWorksPage ({ allPagesData }: TextWorksPageProps) {
       <Head>
         <title>{pageTitle}</title>
       </Head>
+      {/* @ts-ignore */}
       <article>
         <h1 className="page__header">{pageTitle}</h1>
         {allPagesData.map(pageData => console.log(pageData))}

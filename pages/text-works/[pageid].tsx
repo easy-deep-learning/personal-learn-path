@@ -15,7 +15,13 @@ export function getStaticPaths () {
   }
 }
 
-export async function getStaticProps ({ params }) {
+type GetStaticPropsType = {
+  params: {
+    slug: string
+  }
+}
+
+export async function getStaticProps ({ params }: GetStaticPropsType) {
   const fileData = await parseMarkdownFile(path.join(pagesDirectory, `${params.slug}.md`))
   return {
     props: {
@@ -28,15 +34,23 @@ export async function getStaticProps ({ params }) {
   }
 }
 
-export default function MemoryPage ({ allPagesData }) {
+type TestWorkPageType = {
+  pagesData: {
+    date: string
+    title: string
+    html: string
+  }
+}
+
+export default function TestWorkPage ({ pagesData }: TestWorkPageType) {
   return (
     <PagesLayout>
       <Head>
-        <title>{allPagesData.date}: {allPagesData.title}</title>
+        <title>{pagesData.date}: {pagesData.title}</title>
       </Head>
       <article>
-        <h1>{allPagesData.date}: {allPagesData.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: allPagesData.html }} />
+        <h1>{pagesData.date}: {pagesData.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: pagesData.html }} />
       </article>
     </PagesLayout>
   )
