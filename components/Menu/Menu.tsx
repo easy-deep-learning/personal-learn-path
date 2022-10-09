@@ -1,5 +1,4 @@
 import React from 'react'
-import { NextPageContext, NextComponentType } from 'next'
 import Link from 'next/link'
 import { withRouter, NextRouter } from 'next/router'
 import style from './menu.module.css'
@@ -27,7 +26,7 @@ export default function Menu () {
   return (
     <nav className={style.root}>
       <ActiveLink href="/"><a>Главная</a></ActiveLink>
-      <ActiveLink href="/text-works"><a>Тестовые задания</a></ActiveLink>
+      <ActiveLink href="/test-works"><a>Тестовые задания</a></ActiveLink>
       <ActiveLink href="/programming"><a>Программирование</a></ActiveLink>
       <ActiveLink href="/ci-cd"><a>Деплой</a></ActiveLink>
       <ActiveLink href="/soft-skills"><a>Софт-Скиллы</a></ActiveLink>
