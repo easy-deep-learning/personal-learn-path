@@ -1,15 +1,27 @@
 import React from 'react'
+import { NextPageContext, NextComponentType } from 'next'
 import Link from 'next/link'
-import { withRouter } from 'next/router'
+import { withRouter, NextRouter } from 'next/router'
 import style from './menu.module.css'
 
-const ActiveLink = withRouter(({ router, children, ...props }) => (
+interface WithRouterProps {
+  router: NextRouter
+}
+
+interface ComposedComponent extends WithRouterProps {
+  children: React.ReactElement
+  href: string
+}
+
+const ComposedComponent = ({ router, children, ...props }: ComposedComponent) => (
   <Link {...props}>
     {React.cloneElement(children, {
       className: router.pathname === props.href ? `${style.item} ${style.item_active}` : style.item,
     })}
   </Link>
-))
+)
+
+const ActiveLink = withRouter(ComposedComponent)
 
 export default function Menu () {
   return (

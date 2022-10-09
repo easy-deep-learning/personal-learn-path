@@ -2,8 +2,11 @@ import { parseISO, format } from 'date-fns'
 import { ru } from 'date-fns/locale'
 import dateStyles from './date.module.css'
 
+type DatePropsType = {
+  dateString: string
+}
 
-export default function Date({ dateString }) {
+export default function Date({ dateString }: DatePropsType) {
   const date = parseISO(dateString)
   return (
     <time dateTime={dateString} className="date">
