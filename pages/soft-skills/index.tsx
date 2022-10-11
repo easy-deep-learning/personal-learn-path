@@ -16,8 +16,8 @@ import getAllFilesIds from '../../lib/getAllFilesIds'
 import parseMarkdownFile from '../../lib/parseMarkdownFile'
 
 
-const memoryDirectory = path.join(process.cwd(), 'data', 'test-works')
-const pageTitle = `Тестовые задания`
+const memoryDirectory = path.join(process.cwd(), 'data', 'soft-skills')
+const pageTitle = `Soft skills`
 
 export async function getStaticProps () {
   const allPagesData = await Promise.all(
@@ -62,7 +62,7 @@ type TextWorksPageProps = {
   ]
 }
 
-export default function TextWorksPage ({ allPagesData }: TextWorksPageProps) {
+export default function SoftSkillsPage ({ allPagesData }: TextWorksPageProps) {
   return (
     <PagesLayout>
       <Head>
@@ -75,7 +75,7 @@ export default function TextWorksPage ({ allPagesData }: TextWorksPageProps) {
           bordered
           dataSource={allPagesData}
           renderItem={item => (
-            <List.Item>{item.date} / <Link href={`test-works/${item.pageid}`}><a>{item.title}</a></Link></List.Item>
+            <List.Item>{item.date} / <Link href={`soft-skills/${item.pageid}`}><a>{item.title}</a></Link></List.Item>
           )}
         />
 
