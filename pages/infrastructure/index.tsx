@@ -15,9 +15,9 @@ import { PagesLayout } from '../../layouts'
 import getAllFilesIds from '../../lib/getAllFilesIds'
 import parseMarkdownFile from '../../lib/parseMarkdownFile'
 
-const sectionName = 'test-works'
+const sectionName = 'infrastructure'
 const pagesDirectory = path.join(process.cwd(), 'data', sectionName)
-const pageTitle = `Тестовые задания`
+const pageTitle = `Infrastructure`
 
 export async function getStaticProps () {
   const allPagesData = await Promise.all(
@@ -46,7 +46,7 @@ export async function getStaticProps () {
   }
 }
 
-type TextWorksPageIndexProps = {
+type InfrastructureIndexPageProps = {
   allPagesData: [
     {
       title: string
@@ -62,7 +62,7 @@ type TextWorksPageIndexProps = {
   ]
 }
 
-export default function TextWorksIndexPage ({ allPagesData }: TextWorksPageIndexProps) {
+export default function InfrastructureIndexPage ({ allPagesData }: InfrastructureIndexPageProps) {
   return (
     <PagesLayout>
       <Head>
