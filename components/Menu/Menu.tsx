@@ -28,8 +28,9 @@ export default function Menu () {
       <ActiveLink href="/"><a>Главная</a></ActiveLink>
       <ActiveLink href="/test-works"><a>Тестовые задания</a></ActiveLink>
       <ActiveLink href="/programming"><a>Программирование</a></ActiveLink>
-      <ActiveLink href="/ci-cd"><a>Деплой</a></ActiveLink>
+      <ActiveLink href="/infrastructure"><a>Деплой</a></ActiveLink>
       <ActiveLink href="/soft-skills"><a>Софт-Скиллы</a></ActiveLink>
+      <ActiveLink href="/api/hello"><a>API</a></ActiveLink>
     </nav>
   )
 }
