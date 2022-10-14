@@ -4,6 +4,7 @@ import { PagesLayout } from '../../layouts'
 import getAllFilesIds from '../../lib/getAllFilesIds'
 import parseMarkdownFile from '../../lib/parseMarkdownFile'
 
+
 const pagesDirectory = path.join(process.cwd(), 'data', 'infrastructure')
 
 export function getStaticPaths () {

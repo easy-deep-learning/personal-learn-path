@@ -15,14 +15,14 @@ import { PagesLayout } from '../../layouts'
 import getAllFilesIds from '../../lib/getAllFilesIds'
 import parseMarkdownFile from '../../lib/parseMarkdownFile'
 
-
-const memoryDirectory = path.join(process.cwd(), 'data', 'infrastructure')
+const sectionName = 'infrastructure'
+const pagesDirectory = path.join(process.cwd(), 'data', sectionName)
 const pageTitle = `Infrastructure`
 
 export async function getStaticProps () {
   const allPagesData = await Promise.all(
-    getAllFilesIds(memoryDirectory).map(async (fileId) => {
-      const fileData = await parseMarkdownFile(path.join(memoryDirectory, `${fileId}.md`))
+    getAllFilesIds(pagesDirectory).map(async (fileId) => {
+      const fileData = await parseMarkdownFile(path.join(pagesDirectory, `${fileId}.md`))
       // It should be extracted to utils
       const dateParsedISO = parseISO(fileData.meta.date)
 
@@ -75,7 +75,7 @@ export default function InfrastructureIndexPage ({ allPagesData }: Infrastructur
           bordered
           dataSource={allPagesData}
           renderItem={item => (
-            <List.Item>{item.date} / <Link href={`soft-skills/${item.pageid}`}><a>{item.title}</a></Link></List.Item>
+            <List.Item>{item.date} / <Link href={`${sectionName}/${item.pageid}`}><a>{item.title}</a></Link></List.Item>
           )}
         />
 
