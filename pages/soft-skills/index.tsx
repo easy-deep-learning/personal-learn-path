@@ -46,7 +46,7 @@ export async function getStaticProps () {
   }
 }
 
-type TextWorksPageProps = {
+type SoftSkillsIndexPageProps = {
   allPagesData: [
     {
       title: string
@@ -62,7 +62,7 @@ type TextWorksPageProps = {
   ]
 }
 
-export default function SoftSkillsPage ({ allPagesData }: TextWorksPageProps) {
+export default function SoftSkillsIndexPage ({ allPagesData }: SoftSkillsIndexPageProps) {
   return (
     <PagesLayout>
       <Head>

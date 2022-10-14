@@ -4,7 +4,7 @@ import { PagesLayout } from '../../layouts'
 import getAllFilesIds from '../../lib/getAllFilesIds'
 import parseMarkdownFile from '../../lib/parseMarkdownFile'
 
-const pagesDirectory = path.join(process.cwd(), 'data', 'soft-skills')
+const pagesDirectory = path.join(process.cwd(), 'data', 'programming')
 
 export function getStaticPaths () {
   const paths = getAllFilesIds(pagesDirectory).map(path => ({ params: { pageid: path } }))
@@ -35,7 +35,7 @@ export async function getStaticProps ({ params }: GetStaticPropsType) {
   }
 }
 
-type SoftSkillPageType = {
+type ProgrammingPageType = {
   pagesData: {
     date: string
     title: string
@@ -43,7 +43,7 @@ type SoftSkillPageType = {
   }
 }
 
-export default function SoftSkillPage ({ pagesData }: SoftSkillPageType) {
+export default function ProgrammingPage ({ pagesData }: ProgrammingPageType) {
   return (
     <PagesLayout>
       <Head>

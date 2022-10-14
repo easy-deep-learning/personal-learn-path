@@ -16,8 +16,8 @@ import getAllFilesIds from '../../lib/getAllFilesIds'
 import parseMarkdownFile from '../../lib/parseMarkdownFile'
 
 
-const memoryDirectory = path.join(process.cwd(), 'data', 'test-works')
-const pageTitle = `Тестовые задания`
+const memoryDirectory = path.join(process.cwd(), 'data', 'infrastructure')
+const pageTitle = `Infrastructure`
 
 export async function getStaticProps () {
   const allPagesData = await Promise.all(
@@ -46,7 +46,7 @@ export async function getStaticProps () {
   }
 }
 
-type TextWorksPageIndexProps = {
+type InfrastructureIndexPageProps = {
   allPagesData: [
     {
       title: string
@@ -62,7 +62,7 @@ type TextWorksPageIndexProps = {
   ]
 }
 
-export default function TextWorksIndexPage ({ allPagesData }: TextWorksPageIndexProps) {
+export default function InfrastructureIndexPage ({ allPagesData }: InfrastructureIndexPageProps) {
   return (
     <PagesLayout>
       <Head>
@@ -75,7 +75,7 @@ export default function TextWorksIndexPage ({ allPagesData }: TextWorksPageIndex
           bordered
           dataSource={allPagesData}
           renderItem={item => (
-            <List.Item>{item.date} / <Link href={`test-works/${item.pageid}`}><a>{item.title}</a></Link></List.Item>
+            <List.Item>{item.date} / <Link href={`soft-skills/${item.pageid}`}><a>{item.title}</a></Link></List.Item>
           )}
         />
 
