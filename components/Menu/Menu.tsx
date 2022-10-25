@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { withRouter, NextRouter } from 'next/router'
+import { NextRouter } from 'next/router'
 import style from './menu.module.css'
 
 interface WithRouterProps {
@@ -8,29 +8,19 @@ interface WithRouterProps {
 }
 
 interface ComposedComponent extends WithRouterProps {
-  children: React.ReactElement
+  children: string
   href: string
 }
-
-const ComposedComponent = ({ router, children, ...props }: ComposedComponent) => (
-  <Link {...props}>
-    {React.cloneElement(children, {
-      className: router.pathname === props.href ? `${style.item} ${style.item_active}` : style.item,
-    })}
-  </Link>
-)
-
-const ActiveLink = withRouter(ComposedComponent)
 
 export default function Menu () {
   return (
     <nav className={style.root}>
-      <ActiveLink href="/"><a>Главная</a></ActiveLink>
-      <ActiveLink href="/test-works"><a>Тестовые задания</a></ActiveLink>
-      <ActiveLink href="/programming"><a>Программирование</a></ActiveLink>
-      <ActiveLink href="/infrastructure"><a>Деплой</a></ActiveLink>
-      <ActiveLink href="/soft-skills"><a>Софт-Скиллы</a></ActiveLink>
-      <ActiveLink href="/api/hello"><a>API</a></ActiveLink>
+      <Link href="/">Главная</Link>
+      <Link href="/test-works">Тестовые задания</Link>
+      <Link href="/programming">Программирование</Link>
+      <Link href="/infrastructure">Деплой</Link>
+      <Link href="/soft-skills">Софт-Скиллы</Link>
+      <Link href="/api/hello">API</Link>
     </nav>
   )
 }
