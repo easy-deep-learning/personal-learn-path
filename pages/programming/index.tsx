@@ -75,12 +75,12 @@ export default function ProgrammingIndexPage ({ allPagesData }: ProgrammingIndex
           bordered
           dataSource={allPagesData}
           renderItem={item => (
-            <List.Item>{item.date} / <Link href={`${sectionName}/${item.pageid}`}><a>{item.title}</a></Link></List.Item>
+            <List.Item>{item.date} / <Link href={`${sectionName}/${item.pageid}`}>{item.title}</Link></List.Item>
           )}
         />
 
         {allPagesData.map(pageData => console.log(pageData))}
       </article>
     </PagesLayout>
-  )
+  );
 }
