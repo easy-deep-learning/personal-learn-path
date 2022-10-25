@@ -1,4 +1,4 @@
-import { useState } from 'React'
+import { useState } from 'react'
 import { Editor, EditorState, convertFromRaw, RawDraftContentState, convertToRaw } from 'draft-js'
 import 'draft-js/dist/Draft.css'
 
