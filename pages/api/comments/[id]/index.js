@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
-import dbConnect from '../../../lib/dbConnect'
-import Comments from '../../../models/Comments'
+import dbConnect from '../../../../lib/dbConnect'
+import Comments from '../../../../models/Comments'
 
 export default async function handler (req, res) {
   const {

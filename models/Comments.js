@@ -11,7 +11,7 @@ const CommentSchema = new mongoose.Schema({
     required: [true, 'Please specify the email of commenter.'],
   },
   movie_id: {
-    type: String,
+    type: mongoose.Types.ObjectId,
   },
   text: {
     type: String,
