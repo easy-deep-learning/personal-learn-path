@@ -7,7 +7,7 @@ const fetcher = (url) =>
     .then((res) => res.json())
     .then((json) => json.data)
 
-const EditPet = () => {
+const EditComment = () => {
   const router = useRouter()
   const { pageid } = router.query
   const { data: comment, error } = useSWR(pageid ? `/api/comments/${pageid}` : null, fetcher)
@@ -15,7 +15,15 @@ const EditPet = () => {
   if (error) return <p>Failed to load</p>
   if (!comment) return <p>Loading...</p>
 
-  return <CommentForm formId="edit-comment-form" commentForm={comment} forNewComment={false} />
+  const commentForm = {
+    name: comment.name,
+    email: comment.email,
+    movie_id: comment.movie_id,
+    text: comment.text,
+    date: comment.date,
+  }
+
+  return <CommentForm formId="edit-comment-form" commentForm={commentForm} forNewComment={false} />
 }
 
-export default EditPet
+export default EditComment
