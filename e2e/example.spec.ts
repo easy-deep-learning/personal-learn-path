@@ -1,7 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 test('homepage has title and links to intro page', async ({ page }) => {
-  await page.goto('http://localhost:3000/');
+  // await page.goto('http://localhost:3000/'); WARNING: for local
+  await page.goto('https://easy-deep-learning.github.io/personal-learn-path/');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/My personal/);
