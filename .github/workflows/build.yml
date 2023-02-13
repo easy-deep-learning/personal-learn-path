@@ -21,6 +21,8 @@ jobs:
 
       - name: Build
         run: pnpm run build
+        env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
       - name: Static HTML Export
         run: pnpm run export
