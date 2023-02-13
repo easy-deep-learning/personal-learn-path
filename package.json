@@ -14,6 +14,7 @@
     "date-fns": "^2.29.3",
     "draft-js": "^0.11.7",
     "gray-matter": "^4.0.3",
+    "mongoose": "^6.9.1",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -21,6 +22,7 @@
     "rehype-stringify": "^9.0.3",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
+    "swr": "^2.0.3",
     "unified": "^10.1.2"
   },
   "devDependencies": {
